@@ -1,5 +1,6 @@
 import { ApolloServer } from '@apollo/server';
 import { startStandaloneServer } from '@apollo/server/standalone';
+import { v4 as uuidv4 } from 'uuid';
 
 // types
 import { typeDefs } from '../schema.js';
@@ -47,6 +48,33 @@ const resolvers = {
       return db.reviews.filter((r) => r.author_id === parent.id)
     }
   },
+  Mutation: {
+    addBook(_, args) {
+      let book = {
+        ...args.book, 
+        id: uuidv4()
+      }
+      db.books.push(book)
+
+      return book
+    },
+    deleteBook(_, args) {
+      db.books = db.books.filter((b) => b.id !== args.id)
+
+      return db.books
+    },
+    updateBook(_, args) {
+      db.books = db.books.map((b) => {
+        if (b.id === args.id) {
+          return {...b, ...args.edits}
+        }
+
+        return b
+      })
+
+      return db.books.find((b) => b.id === args.id)
+    }
+  }
 };
 
 // The ApolloServer constructor requires two parameters: your schema
