@@ -2,23 +2,18 @@ import { ApolloServer } from '@apollo/server';
 import { startStandaloneServer } from '@apollo/server/standalone';
 // types
 import { typeDefs } from '../schema.js';
-const books = [
-    {
-        id: 1,
-        title: 'The Awakening',
-        author: ['Kate Chopin'],
-    },
-    {
-        id: 2,
-        title: 'City of Glass',
-        author: ['Paul Auster'],
-    },
-];
+//db
+import db from '../_db.js';
 // Resolvers define how to fetch the types defined in your schema.
 // This resolver retrieves books from the "books" array above.
 const resolvers = {
     Query: {
-        books: () => books,
+        books: () => db.books,
+        authors: () => db.authors,
+        reviews: () => db.reviews,
+        review(_, args) {
+            return db.reviews.find((review) => review.id === args.id);
+        }
     },
 };
 // The ApolloServer constructor requires two parameters: your schema
