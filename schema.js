@@ -36,4 +36,21 @@ export const typeDefs = `#graphql
     reviews: [Review]
     review(id: ID!): Review
   }
+
+  type Mutation {
+    addBook(book: AddBookInput!): Book
+    deleteBook(id: ID!): [Book]
+    updateBook(id: ID!, edits: EditBookInput): Book
+  }
+
+  input AddBookInput {
+    title: String!,
+    writer: [String!]!
+  }
+
+  input EditBookInput {
+    title: String,
+    writer: [String!]
+  }
+  
 `;
