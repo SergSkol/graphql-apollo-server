@@ -2,7 +2,7 @@ import { ApolloServer } from '@apollo/server';
 import { startStandaloneServer } from '@apollo/server/standalone';
 
 // types
-import { typeDefs } from './schema.js';
+import { typeDefs } from '../schema.js';
 
 const books = [
   {
