@@ -1,9 +1,9 @@
 let books = [
-  { id: '1', title: 'The Awakening', author: ['Kate Chopin'] },
-  { id: '2', title: 'City of Glass', author: ['Paul Auster'] },
-  { id: '3', title: 'Loren', author: ['Paul Auster'] },
-  { id: '4', title: 'Ipsum', author: ['Paul Auster'] },
-  { id: '5', title: 'Tower', author: ['Kate Chopin'] },
+  { id: '1', title: 'The Awakening', writer: ['Kate Chopin'] },
+  { id: '2', title: 'City of Glass', writer: ['Paul Auster'] },
+  { id: '3', title: 'Loren', writer: ['Paul Auster'] },
+  { id: '4', title: 'Ipsum', writer: ['Paul Auster'] },
+  { id: '5', title: 'Tower', writer: ['Kate Chopin', 'Paul Auster'] },
 ]
 
 let authors = [

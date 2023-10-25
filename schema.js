@@ -5,19 +5,23 @@ export const typeDefs = `#graphql
   type Book {
     id: ID!
     title: String!
-    author: [String!]!
-  }
-
-  type Review {
-    id: ID!
-    rating: Int!
-    content: String!
+    writer: [String!]!
+    reviews: [Review!]
   }
 
   type Author {
     id: ID!
     name: String!
     verified: Boolean!
+    reviews: [Review!]
+  }
+
+  type Review {
+    id: ID!
+    rating: Int!
+    content: String!
+    book: Book!
+    author: Author!
   }
 
   # The "Query" type is special: it lists all of the available queries that
