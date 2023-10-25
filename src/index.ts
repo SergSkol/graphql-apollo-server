@@ -29,6 +29,24 @@ const resolvers = {
       return db.reviews.find((review) => review.id === args.id)
     }
   },
+  Book: {
+    reviews(parent) {
+      return db.reviews.filter((r) => r.book_id === parent.id)
+    }
+  },
+  Review: {
+    author(parent) {
+      return db.authors.find((a) => a.id === parent.author_id)
+    },
+    book(parent) {
+      return db.books.find((b) => b.id === parent.book_id)
+    }
+  },
+  Author: {
+    reviews(parent) {
+      return db.reviews.filter((r) => r.author_id === parent.id)
+    }
+  },
 };
 
 // The ApolloServer constructor requires two parameters: your schema
