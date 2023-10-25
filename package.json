@@ -1,0 +1,31 @@
+{
+  "name": "graphql-apollo-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "tsc",
+    "start": "npm run compile && node ./dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SergSkol/graphql-apollo-server.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SergSkol/graphql-apollo-server/issues"
+  },
+  "homepage": "https://github.com/SergSkol/graphql-apollo-server#readme",
+  "type": "module",
+  "dependencies": {
+    "@apollo/server": "^4.9.4",
+    "graphql": "^16.8.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.8.8",
+    "typescript": "^5.2.2"
+  }
+}
